@@ -81,4 +81,28 @@
 	"created": "21-08-2018",
 	"modified": "21-08-2018",
 	"categories": ["pizza"]
+},
+{
+	"id": 19112838,
+	"sku": 1120008,
+	"name": "Pepsi",
+	"description": "Pepsi 0,5",
+	"price": "15",
+	"currency": "UAN",
+	"creatorId": 1,
+	"created": "11-08-2018",
+	"modified": "11-08-2018",
+	"categories": ["drinks"]
+},
+{
+	"id": 19112839,
+	"sku": 1120009,
+	"name": "Apple juice",
+	"description": "Apple juice 0,5",
+	"price": "11",
+	"currency": "UAN",
+	"creatorId": 1,
+	"created": "11-08-2018",
+	"modified": "11-08-2018",
+	"categories": ["drinks"]
 }]
