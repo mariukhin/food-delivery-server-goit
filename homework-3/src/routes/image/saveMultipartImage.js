@@ -5,8 +5,8 @@ const util = require('util');
 
 const renameFile = util.promisify(fs.rename);
 
-const TEMP_IMAGE_FOLDER = path.join(__dirname, '../../../', 'assets');
-const USER_IMAGE_FOLDER = path.join(__dirname, '../../../', 'data', 'user-images');
+const TEMP_IMAGE_FOLDER = path.join(__dirname, '../../', 'assets');
+const USER_IMAGE_FOLDER = path.join(__dirname, '../', 'db', 'user-images');
 
 const storage = multer.diskStorage({
   // определяем папку куда сохранять временное изображение

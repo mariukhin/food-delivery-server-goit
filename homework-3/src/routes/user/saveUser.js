@@ -14,27 +14,17 @@ const saveNewUser = (fileName, data) => {
 
   return writeFile(src, dataStr);
 };
-const saveUser = user => {
-  const username = user.username;
-  const newUser = JSON.stringify(user);
-  const filePath = path.join(__dirname, '../../', 'db', 'users');
-  fs.writeFile(`${filePath}/${username}.json`, newUser, 'utf8' , function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
-};
 const createUser = (request, response) => {
   const user = request.body;
   const userData = Object.assign({}, user, { id: g.newId()});
 
-  console.log(userData);
-  const fileName = userData.username.toLowerCase() + userData.id;
+  const fileName = userData.id;
 
   const sendResponse = () => {
     response.json({
       status: 'success',
       user: userData
-  });
+    });
   };
 
   const sendError = () => {
