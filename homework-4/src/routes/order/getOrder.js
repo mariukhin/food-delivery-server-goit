@@ -1,29 +1,27 @@
 const Order = require('../../db/schemas/order');
 
-const createOrder = (request, response) => {
-  const order = request.body;
-  const orderData = Object.assign({}, order);
-
-  const newOrder = new Order(orderData);
+const getOrder = (request, response) => {
+  const id = request.params.id;
   const sendResponse = (order) => {
-
+    response.status(200);
     response.json({
       status: 'success',
       order: order
     });
   };
-
   const sendError = () => {
     response.status(400);
     response.json({
-      error: 'order was not saved'
+      status: 'error',
+      text: 'there is no such order'
     });
   };
 
-  newOrder.save()
+  const findOrder = Order.findById(id);
+  
+  findOrder
     .then(sendResponse)
-    .catch(sendError)
-
+    .catch(sendError);
 };
 
-module.exports = createOrder;
+module.exports = getOrder;

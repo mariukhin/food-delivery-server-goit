@@ -1,9 +1,10 @@
 const express = require('express');
 const mainRoute = require('./main/main');
 const createUser = require('./user/createUser');
-const getProducts = require('./products/getProducts');
-const getProductById = require('./products/getProductById');
+const getAllProducts = require('./products/getAllProducts');
+const getProduct = require('./products/getProduct');
 const getUser = require('./user/getUser');
+const getOrder = require('./order/getOrder');
 const createOrder = require('./order/createOrder');
 const createProduct = require('./products/createProduct');
 const updateUser = require('./user/updateUser');
@@ -14,13 +15,14 @@ const apiRoutes = express.Router();
 
 apiRoutes
   .get('/', mainRoute)
-  .get('/products', getProducts)
-  .get('/products/:id', getProductById)
+  .get('/products', getAllProducts)
+  .get('/products/:id', getProduct)
   .get('/users/:id', getUser)
+  .get('/orders/:id', getOrder)
   .post('/users', createUser)
-  .post('/orders/', createOrder)
-  .post('/product', createProduct)
-  .put('/user/:id', updateUser)
+  .post('/orders', createOrder)
+  .post('/products', createProduct)
+  .put('/users/:id', updateUser)
   .put('/products/:id', updateProduct);
 
 module.exports = apiRoutes;
