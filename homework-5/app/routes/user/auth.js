@@ -19,7 +19,8 @@ const generateToken = paramsForTokenGeneration => {
 };
 
 const authenticate = (req, res) => {
-  const { id: userId, password } = req.body;
+  const { userId, password } = req.body;
+  
   User.findById(userId, onFind);
 
   function onFind(err, user) {

@@ -20,6 +20,7 @@ const logout = require('./user/logout');
 const apiRoutes = express.Router();
 
 apiRoutes
+  .post('/auth/register', createUser)
   .post('/auth/login', auth)
   .use(verifyToken)
   .get('/', mainRoute)
@@ -30,7 +31,6 @@ apiRoutes
   .get('/auth/logout', logout)
   .get('/auth/current', getCurrent)
   .get('/comments/:id', getComment)
-  .post('/auth/register', createUser)
   .post('/orders', createOrder)
   .post('/products', createProduct)
   .post('/ingredients', createIngredient)
