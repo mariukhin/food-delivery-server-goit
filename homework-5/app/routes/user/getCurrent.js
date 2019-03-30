@@ -2,7 +2,7 @@ const User = require('../../models/user');
 
 const getCurrent = (req, res) => {
   const userId = req.decoded.userId;
-  User.findById(userId, onFind);
+  User.findById(userId, onFind).populate('favoriteProducts').populate('viewedProducts').populate('orders');
 
   function onFind(err, user) {
     if (err) {

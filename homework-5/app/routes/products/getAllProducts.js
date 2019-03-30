@@ -7,7 +7,7 @@ const getAllProducts = (request, response) => {
   };
 
   Product
-    .find()
+    .find().populate('ingredients')
     .then(sendResponse)
     .catch(err => {
       console.error(err)
